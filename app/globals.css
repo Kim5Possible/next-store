@@ -16,3 +16,13 @@ body {
     @apply bg-gradient-to-t from-violet-700 to-fuchsia-700;
   }
 }
+
+@layer base {
+  h1 {
+    @apply font-[geist-sans] text-blue-500 text-6xl font-bold leading-snug;
+  }
+
+  p {
+    @apply leading-loose tracking-wide;
+  }
+}

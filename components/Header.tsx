@@ -72,9 +72,9 @@ const Header = (props: Props) => {
           <ul
             className={`${
               isMenuOpen && isMobile
-                ? "flex-col gap-3 border border-gray-500 rounded-lg px-3 py-2 bg-[--color-light] dark:bg-[--color-dark]"
-                : "gap-10"
-            } flex`}
+                ? "flex-col gap-3 rounded-lg px-3 py-2 bg-[--color-light] dark:bg-[--color-dark]"
+                : "gap-16 rounded-full px-5 py-2"
+            } flex border border-gray-500`}
           >
             <li>Home</li>
             <li>Store</li>
@@ -83,7 +83,7 @@ const Header = (props: Props) => {
             </li>
           </ul>
         </nav>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-5 items-center">
           <button className="gradient-purple px-2 py-1 rounded-lg text-[--color-light] hover:drop-shadow-[0_0_4px_#b61aff] transition-all duration-200">
             Sign In
           </button>
