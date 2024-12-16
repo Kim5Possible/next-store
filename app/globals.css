@@ -15,11 +15,15 @@ body {
   .gradient-purple {
     @apply bg-gradient-to-t from-violet-700 to-fuchsia-700;
   }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
 
 @layer base {
   h1 {
-    @apply font-[geist-sans] text-blue-500 text-6xl font-bold leading-snug;
+    @apply font-[geist-sans] text-blue-500 text-3xl md:text-4xl lg:text-6xl font-bold leading-snug;
   }
 
   p {

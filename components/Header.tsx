@@ -4,17 +4,19 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import MenuIcon from "@mui/icons-material/Menu";
+import Link from "next/link";
 
 type Props = {};
 
 const Header = (props: Props) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const linkStyle = "hover:underline opacity-80 hover:opacity-100";
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [theme, setTheme] = useState("dark");
-  const root = document.getElementsByTagName("html")[0];
 
   // set theme on load
   useEffect(() => {
+    const root = document.getElementsByTagName("html")[0];
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme) {
@@ -28,6 +30,7 @@ const Header = (props: Props) => {
 
   // toggle theme
   const toggleTheme = () => {
+    const root = document.getElementsByTagName("html")[0];
     const newTheme = theme === "light" ? "dark" : "light";
 
     setTheme(newTheme);
@@ -57,9 +60,12 @@ const Header = (props: Props) => {
   return (
     <header className="py-5 border-b border-b-gray-400 dark:border-b-gray-500">
       <div className="relative container flex justify-between items-center text-lg">
-        <h1 className="font-[geist-sans] text-2xl sm:text-4xl font-bold gradient-purple bg-clip-text text-transparent">
+        <Link
+          href="/"
+          className="font-[geist-sans] text-2xl sm:text-4xl font-bold gradient-purple bg-clip-text text-transparent"
+        >
           Super Store
-        </h1>
+        </Link>
         <nav
           className={
             isMobile
@@ -76,10 +82,20 @@ const Header = (props: Props) => {
                 : "gap-16 rounded-full px-5 py-2"
             } flex border border-gray-500`}
           >
-            <li>Home</li>
-            <li>Store</li>
             <li>
-              Cart <ShoppingCartOutlinedIcon />
+              <Link href="/" className={linkStyle}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/store" className={linkStyle}>
+                Store
+              </Link>
+            </li>
+            <li>
+              <Link href="/cart" className={linkStyle}>
+                Cart <ShoppingCartOutlinedIcon />
+              </Link>
             </li>
           </ul>
         </nav>
