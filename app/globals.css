@@ -5,6 +5,7 @@
 :root {
   --color-light: #e0e0e0;
   --color-dark: #171717;
+  --blue: #3b82f6;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
 
 @layer base {
   h1 {
-    @apply font-[geist-sans] text-blue-500 text-3xl md:text-4xl lg:text-6xl font-bold leading-snug;
+    @apply font-[geist-sans] text-[--blue] text-3xl md:text-4xl lg:text-6xl font-bold leading-snug;
   }
 
   p {
