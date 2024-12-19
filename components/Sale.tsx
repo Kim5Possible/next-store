@@ -7,7 +7,7 @@ import Loader from "./Loader";
 type Props = {};
 
 const Sale = ({}: Props) => {
-  const { products, isLoading } = useProducts();
+  const { products, isLoading } = useProducts({});
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const productsWithDiscount = products.filter(
     (product) => product.discount !== undefined
@@ -51,7 +51,7 @@ const Sale = ({}: Props) => {
     !productsWithDiscount || productsWithDiscount.length === 0;
 
   return (
-    <section className="bg-[#cfcfcf] dark:bg-[#202020] py-20 shadow-[0_8px_15px_0px_rgba(255,255,255,0.5)_inset] dark:shadow-[0_8px_15px_0px_rgba(0,0,0,0.2)_inset]">
+    <section className="bg-[--color-light-2] dark:bg-[--color-dark-2] py-20 shadow-[0_8px_15px_0px_rgba(255,255,255,0.5)_inset] dark:shadow-[0_8px_15px_0px_rgba(0,0,0,0.2)_inset]">
       <div className="container text-center">
         <h1 className="blue-text mb-5">Sale</h1>
         <p>Hurry up! Limited time offer up to 30% off!</p>

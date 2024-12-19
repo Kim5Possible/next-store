@@ -2,7 +2,7 @@ import Link from "next/link";
 import { footerLinks } from "@/constants";
 
 const Footer = () => (
-  <footer className="mt-5">
+  <footer className="mt-5 shadow-[0_8px_15px_0px_rgba(255,255,255,0.5)_inset] dark:shadow-[0_8px_15px_0px_rgba(0,0,0,0.5)_inset] pt-10">
     <div className="container flex flex-col md:flex-row  justify-between ">
       <Link
         href="/"
