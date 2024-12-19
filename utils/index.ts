@@ -2,16 +2,22 @@
 import { useEffect, useState } from "react";
 import { IProduct } from "@/types";
 
-const useProducts = () => {
+type Props = {
+  id?: number;
+};
+
+const useProducts = ({ id }: Props) => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://fakestoreapi.in/api/products");
+        const response = await fetch(
+          `https://fakestoreapi.in/api/products${id ? `/${id}` : ""}`
+        );
         const data = await response.json();
-        setProducts(data.products);
+        id ? setProducts(data.product) : setProducts(data.products);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -21,6 +27,7 @@ const useProducts = () => {
 
     fetchProducts();
   }, []);
+  console.log(products);
   return { products, isLoading };
 };
 
