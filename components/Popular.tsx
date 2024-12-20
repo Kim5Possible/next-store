@@ -6,27 +6,27 @@ import Loader from "./Loader";
 
 type Props = {};
 
-const Sale = ({}: Props) => {
+const Popular = ({}: Props) => {
   const { products, isLoading } = useProducts({});
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const productsWithDiscount = products.filter(
-    (product) => product.discount !== undefined
+  const productsPopular = products.filter(
+    (product) => product.popular === true
   );
 
   const [currentRows, setCurrentRows] = useState(2);
   const productsPerRow = 4;
 
-  const visibleProducts = productsWithDiscount.slice(
+  const visibleProducts = productsPopular.slice(
     0,
     productsPerRow * currentRows
   );
-  const hasMoreProducts = visibleProducts.length < productsWithDiscount.length;
+  const hasMoreProducts = visibleProducts.length < productsPopular.length;
 
   const handleShowMore = async () => {
     setIsLoadingMore(true);
 
     // Create an array of promises for all images in the next batch
-    const nextBatchProducts = productsWithDiscount.slice(
+    const nextBatchProducts = productsPopular.slice(
       visibleProducts.length,
       productsPerRow * (currentRows + 2)
     );
@@ -47,14 +47,13 @@ const Sale = ({}: Props) => {
     setIsLoadingMore(false);
   };
 
-  const isDataEmpty =
-    !productsWithDiscount || productsWithDiscount.length === 0;
+  const isDataEmpty = !productsPopular || productsPopular.length === 0;
 
   return (
     <section className="bg-[--color-light-2] dark:bg-[--color-dark-2] py-20 shadow-[0_8px_15px_0px_rgba(255,255,255,0.5)_inset] dark:shadow-[0_8px_15px_0px_rgba(0,0,0,0.2)_inset]">
       <div className="container text-center">
-        <h1 className="blue-text mb-5">Sale</h1>
-        <p>Hurry up! Limited time offer up to 30% off!</p>
+        <h1 className="blue-text mb-5">Popular Now</h1>
+        <p>Discover the latest and most popular products.</p>
       </div>
       {isLoading ? (
         <Loader />
@@ -86,4 +85,4 @@ const Sale = ({}: Props) => {
   );
 };
 
-export default Sale;
+export default Popular;
