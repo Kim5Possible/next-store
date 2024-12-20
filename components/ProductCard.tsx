@@ -11,7 +11,7 @@ const ProductCard = ({ product }: Props) => {
   return (
     <div
       key={product.id}
-      className="relative flex flex-col justify-between gap-3 border rounded-lg p-4"
+      className="relative max-h-[500px] shadow-lg flex flex-col justify-between gap-3 border rounded-lg p-4"
     >
       <Link href={`/product/${product.id}`}>
         <img
@@ -25,13 +25,15 @@ const ProductCard = ({ product }: Props) => {
             : product.title}
         </h3>
       </Link>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row gap-2 justify-between items-center">
         <Price price={product.price} discount={product.discount} />
         <button className="button-cart">Add To Cart</button>
       </div>
-      <span className="text-xs absolute top-[10px] right-[10px] px-2 py-1 flex justify-center items-center bg-red-500 text-white rounded-full">
-        -{product.discount}%
-      </span>
+      {product.discount && (
+        <span className="text-xs absolute top-[10px] right-[10px] px-2 py-1 flex justify-center items-center bg-red-500 text-white rounded-full">
+          -{product.discount}%
+        </span>
+      )}
       {product.popular && (
         <span className="uppercase text-xs absolute top-[10px] left-[10px] px-2 py-1 flex justify-center items-center bg-green-500 text-white rounded-full">
           Popular

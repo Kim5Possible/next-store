@@ -14,7 +14,7 @@ const useProducts = ({ id }: Props) => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `https://fakestoreapi.in/api/products${id ? `/${id}` : ""}`
+          `https://fakestoreapi.in/api/products${id ? `/${id}` : ""}?limit=150`
         );
         const data = await response.json();
         id ? setProducts(data.product) : setProducts(data.products);
@@ -27,7 +27,6 @@ const useProducts = ({ id }: Props) => {
 
     fetchProducts();
   }, []);
-  console.log(products);
   return { products, isLoading };
 };
 

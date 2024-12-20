@@ -4,9 +4,8 @@ import { useProducts } from "@/utils";
 
 export default function Product({ params }) {
   const { products, isLoading } = useProducts({ id: params.id });
-
   return (
-    <main className="container py-6">
+    <main className="container pb-10">
       <button
         onClick={() => history.back()}
         className="opacity-80 text-sm mb-2"
@@ -39,9 +38,11 @@ export default function Product({ params }) {
             <span className="px-4 py-1 ml-3 w-fit bg-blue-400 text-[--color-light] rounded-full mr-3">
               {products.category}
             </span>
-            <span className="px-4 py-1 w-fit bg-gray-500 text-[--color-light] rounded-full">
-              {products.color}
-            </span>
+            {products.color && (
+              <span className="px-4 py-1 w-fit bg-gray-500 text-[--color-light] rounded-full">
+                {products.color}
+              </span>
+            )}
           </div>
           <p>{products.description}</p>
 
@@ -50,9 +51,11 @@ export default function Product({ params }) {
             <button className="button-cart">Add to Cart</button>
           </div>
         </div>
-        <span className="text-xs absolute top-[10px] right-[10px] px-2 py-1 flex justify-center items-center bg-red-500 text-white rounded-full">
-          -{products.discount}%
-        </span>
+        {products.discount && (
+          <span className="text-xs absolute top-[10px] right-[10px] px-2 py-1 flex justify-center items-center bg-red-500 text-white rounded-full">
+            -{products.discount}%
+          </span>
+        )}
         {products.popular && (
           <span className="uppercase text-xs absolute top-[10px] left-[10px] px-2 py-1 flex justify-center items-center bg-green-500 text-white rounded-full">
             Popular

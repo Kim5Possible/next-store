@@ -6,7 +6,7 @@ type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <section className="container flex flex-col-reverse sm:flex-row items-center justify-between py-10  sm:py-20">
+    <section className="container flex flex-col-reverse sm:flex-row items-center justify-between pb-10  sm:pb-20">
       <div className="flex flex-col justify-between gap-10">
         <h1 className="text-center sm:text-left">Gear Up for the Future!</h1>
         <p className=" max-w-[400px] mx-auto sm:mx-0 text-center sm:text-left">

@@ -58,7 +58,7 @@ const Header = (props: Props) => {
   }, []);
 
   return (
-    <header className="py-5 border-b border-b-gray-400 dark:border-b-gray-500">
+    <header className="mb-10 py-5 border-b border-b-gray-400 dark:border-b-gray-500">
       <div className="relative container flex justify-between items-center text-lg">
         <Link
           href="/"
@@ -83,17 +83,17 @@ const Header = (props: Props) => {
             } flex border border-gray-500`}
           >
             <li>
-              <Link href="/" className={linkStyle}>
+              <Link onClick={toggleMenu} href="/" className={linkStyle}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/store" className={linkStyle}>
+              <Link onClick={toggleMenu} href="/store" className={linkStyle}>
                 Store
               </Link>
             </li>
             <li>
-              <Link href="/cart" className={linkStyle}>
+              <Link onClick={toggleMenu} href="/cart" className={linkStyle}>
                 Cart <ShoppingCartOutlinedIcon />
               </Link>
             </li>

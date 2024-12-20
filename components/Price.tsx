@@ -7,14 +7,14 @@ type Props = {
 
 const Price = ({ price, discount }: Props) => {
   return discount ? (
-    <div>
-      <span className="text-gray-500 line-through border-r pr-4">{price}$</span>
-      <span className="text-red-500 pl-4">
-        {price - (price * discount) / 100}$
+    <div className="font-bold">
+      <span className="text-gray-500 line-through border-r pr-2">{price}$</span>
+      <span className="text-red-500 pl-2">
+        {(price - (price * discount) / 100).toFixed(2)}$
       </span>
     </div>
   ) : (
-    <span className="text-gray-500 border-r pr-4">{price}$</span>
+    <span className="font-bold text-[--blue]">{price}$</span>
   );
 };
 
