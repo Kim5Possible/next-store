@@ -1,6 +1,7 @@
 import React from "react";
 import HeroImage from "../public//hero-img.png";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {};
 
@@ -14,11 +15,14 @@ const Hero = (props: Props) => {
           enthusiasts. From gaming gear to everyday essentials, our products
           blend style and functionality.
         </p>
-        <button className="mx-auto sm:mx-0 max-w-44 flex justify-center p-1 rounded bg-gradient-to-r from-blue-500 to-fuchsia-700">
+        <Link
+          href="/store"
+          className="mx-auto sm:mx-0 text-center max-w-44 flex justify-center p-1 rounded bg-gradient-to-r from-blue-500 to-fuchsia-700"
+        >
           <span className="p-2 tracking-widest rounded uppercase w-full bg-[--color-light] dark:bg-[--color-dark] hover:bg-transparent dark:hover:bg-transparent hover:text-[--color-light] transition-all duration-300">
             Explore Now
           </span>
-        </button>
+        </Link>
       </div>
       <div className="mb-5 p-10 sm:mb-0 bg-gradient-to-t from-violet-700 to-red-700  rounded-tl-[30%] rounded-br-[30%] rounded-bl-[10%] rounded-tr-[10%]">
         <Image

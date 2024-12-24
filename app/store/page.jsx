@@ -52,7 +52,7 @@ export default function Store() {
 
   return (
     <div className="container">
-      <div className="relative w-96 mb-3">
+      <div className="relative w-96 mb-3 sm:mb-0">
         <input
           onChange={(e) => setSearch(e.target.value)}
           className="block p-2.5 w-full text-sm bg-[--color-light-2] rounded-e-lg dark:bg-[--color-dark-2]  dark:placeholder-opacity-50 border border-black/30 dark:border-white/30 focus:outline-none focus:border-transparent"
@@ -66,14 +66,14 @@ export default function Store() {
           <SearchIcon />
         </button>
       </div>
-      <div className="flex justify-between mb-4">
+      <div className="flex justify-between sm:justify-end mb-4">
         <span
           onClick={() => setOpenSort(!openSort)}
           className="relative cursor-pointer"
         >
           <FilterListIcon className="text-[#3b82f6]" />
           {openSort && (
-            <ul className="absolute z-20 top-7 left-0 flex flex-col gap-2 bg-[--color-light-2] dark:bg-[--color-dark-2] p-3 border rounded-lg border-black/30 dark:border-white/30 w-[160px]">
+            <ul className="absolute z-30 top-7 left-0 sm:right-0 sm:left-auto flex flex-col gap-2 bg-[--color-light-2] dark:bg-[--color-dark-2] p-3 border rounded-lg border-black/30 dark:border-white/30 w-[160px]">
               {sortList.map((option) => (
                 <li
                   onClick={() => setSort(option)}
