@@ -5,6 +5,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 type Props = {};
 
@@ -13,6 +14,7 @@ const Header = (props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const { cart } = useCart();
 
   // set theme on load
   useEffect(() => {
@@ -93,8 +95,17 @@ const Header = (props: Props) => {
               </Link>
             </li>
             <li>
-              <Link onClick={toggleMenu} href="/cart" className={linkStyle}>
+              <Link
+                onClick={toggleMenu}
+                href="/cart"
+                className={`${linkStyle} relative`}
+              >
                 Cart <ShoppingCartOutlinedIcon />
+                {cart.length > 0 && (
+                  <span className="absolute top-[-7px] right-[-5px] text-xs bg-red-500 text-white rounded-full px-1">
+                    {cart.length}
+                  </span>
+                )}
               </Link>
             </li>
           </ul>

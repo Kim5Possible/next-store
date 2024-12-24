@@ -1,4 +1,5 @@
 "use client";
+import AddToCart from "@/components/AddToCart";
 import Price from "@/components/Price";
 import { useProducts } from "@/utils";
 
@@ -48,7 +49,7 @@ export default function Product({ params }) {
 
           <div className="flex justify-between items-center">
             <Price price={products.price} discount={products.discount} />
-            <button className="button-cart">Add to Cart</button>
+            <AddToCart product={products} />
           </div>
         </div>
         {products.discount && (
