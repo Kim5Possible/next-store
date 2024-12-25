@@ -1,3 +1,6 @@
+## gh-pages
+https://kim5possible.github.io/next-store/
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
