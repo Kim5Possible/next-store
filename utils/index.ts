@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const useProducts = ({ id }: Props) => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<IProduct[] | IProduct>(() => []);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +26,6 @@ export const useProducts = ({ id }: Props) => {
     };
 
     fetchProducts();
-  }, []);
+  }, [id]);
   return { products, isLoading };
 };

@@ -9,6 +9,7 @@ type Props = {};
 const Popular = ({}: Props) => {
   const { products, isLoading } = useProducts({});
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  if (!Array.isArray(products)) return <div>Unexpected response</div>;
   const productsPopular = products.filter(
     (product) => product.popular === true
   );

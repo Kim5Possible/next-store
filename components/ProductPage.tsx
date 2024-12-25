@@ -11,6 +11,7 @@ type Props = {
 export default function ProductPage({ params }: Props) {
   const { products, isLoading } = useProducts({ id: params.id });
   if (isLoading) return <Loader />;
+  if (Array.isArray(products)) return <div>Unexpected response</div>;
   return (
     <main className="container pb-10">
       <button
