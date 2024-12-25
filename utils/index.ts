@@ -6,7 +6,7 @@ type Props = {
   id?: number;
 };
 
-const useProducts = ({ id }: Props) => {
+export const useProducts = ({ id }: Props) => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,5 +29,3 @@ const useProducts = ({ id }: Props) => {
   }, []);
   return { products, isLoading };
 };
-
-export { useProducts };
